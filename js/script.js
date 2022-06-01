@@ -3,12 +3,12 @@ var win = 0;
 var ties = 0;
 var losses = 0;
 
-var option = ["R","P","S"];
+var option = ["R", "P", "S"];
 var gameStart = function(){
-    var userChoices =window.prompt("Please enter R, P, S" );
+    var userChoices = window.prompt("Please enter R, P, S: " );
     if (!userChoices){
-        return;//if user presses cancel end the game
-    }
+        return;
+    
 }
 var index = Math.floor(Math.random()* option.length);
 var compChoices = option[index];//get random index from array of options
@@ -26,10 +26,17 @@ if (userChoices === compChoices){
     window.alert("You win");
 } else {
    losses++;
-   window.alert("You lost!");
+   window.alert("You lost!");//if the above condition failed then display error
 }
-
-
+window.alert(
+    "stats:\n Wins:" + win + "\nlosses: " + losses + "\n tie: " + ties
+);
+var playAgain = window.confirm("Do you want to play again?");
+if (playAgain){
+    gameStart();
+}
+};
+gameStart();
 
 
 
